@@ -26,7 +26,7 @@ exports.decrypt = function(encryptdata, keySeed, ivSeed) {
 exports.encrypt = function(cleardata, keySeed, ivSeed) {
     var keyParams = getEncParams(keySeed,ivSeed);
 
-    var encipher = crypto.createCipheriv('aes-256-cbc', keyParams.key, keyParams.iv);
+    var encipher = crypto.createCipheriv('AES-256-GCM', keyParams.key, keyParams.iv);
     var encryptdata  = encipher.update(cleardata, 'utf8', 'binary');
 
     encryptdata += encipher.final('binary');
